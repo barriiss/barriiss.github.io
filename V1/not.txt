@@ -1,0 +1,6 @@
+Yapılacaklar
+    Oyun bittiğinde butonları devre dışı bırakma
+Eklenebilecek özellikler
+    Süre kontrolü -
+    Puan Sistemi *
+    Deneme hakkı -
