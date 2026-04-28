@@ -6,24 +6,6 @@ const puanYeri = document.querySelector(".puan");
 yenile.addEventListener("click", () => { location.reload(); })
 
 class Fonksiyonlar {
-    resimEkle(element) {
-        var resim = document.createElement("img");
-        resim.setAttribute("src", "ok.png");
-        resim.setAttribute("width", "70px")
-        element.appendChild(resim);
-    }
-
-    temizle() {
-        sayiYeri.forEach(element => {
-            element.style.display = "none";
-        })
-    }
-}
-
-
-class Oyun extends Fonksiyonlar {
-    kordinat = {};
-    butonlar = [];
     kordinatEkle(satir, sutun) {
         let index = 0;
         for (let y = 0; y < sutun; y++) {
@@ -44,6 +26,23 @@ class Oyun extends Fonksiyonlar {
         }
         this.kordinat = kordinat;
     }
+    resimEkle(element) {
+        var resim = document.createElement("img");
+        resim.setAttribute("src", "ok.png");
+        resim.setAttribute("width", "70px")
+        element.appendChild(resim);
+    }
+
+    temizle() {
+        sayiYeri.forEach(element => {
+            element.style.display = "none";
+        })
+    }
+}
+
+class Oyun extends Fonksiyonlar {
+    kordinat = {};
+    butonlar = [];
 
     main() {
         this.temizle();
@@ -65,7 +64,7 @@ class Oyun extends Fonksiyonlar {
                 else {
                     if (this.butonlar.includes(element)) {
                     }
-                    else{
+                    else {
                         this.butonlar.push(element);
                         puan -= 10;
                     }
@@ -76,20 +75,7 @@ class Oyun extends Fonksiyonlar {
             });
         })
     }
-    resimEkle(element) {
-        var resim = document.createElement("img");
-        resim.setAttribute("src", "ok.png");
-        resim.setAttribute("width", "70px")
-        element.appendChild(resim);
-    }
-
-    temizle() {
-        sayiYeri.forEach(element => {
-            element.style.display = "none";
-        })
-    }
 }
-
 
 function app() {
     const oyun = new Oyun();
