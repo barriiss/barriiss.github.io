@@ -1,9 +1,17 @@
 const kare = document.querySelectorAll(".kare");
-const container = document.querySelector(".container");
 const sayiYeri = document.querySelectorAll('.sayi');
-const yenile = document.querySelector(".button");
+const baslatButon = document.querySelector(".btn-baslat");
 const puanYeri = document.querySelector(".puan");
-yenile.addEventListener("click", () => { location.reload(); })
+const nasilButon = document.querySelector(".btn-nasil");
+
+nasilButon.addEventListener("click", () => {
+    document.querySelector(".nasil-oynanir").style.display = "block";
+    document.querySelector(".butonlar").style.display = "none";
+})
+
+baslatButon.addEventListener("click", () => {
+    location.reload();
+})
 
 class Fonksiyonlar {
     kordinatEkle(satir, sutun) {
@@ -29,7 +37,7 @@ class Fonksiyonlar {
     resimEkle(element) {
         var resim = document.createElement("img");
         resim.setAttribute("src", "ok.png");
-        resim.setAttribute("width", "70px")
+        resim.setAttribute("width", "60px")
         element.appendChild(resim);
     }
 
@@ -38,6 +46,12 @@ class Fonksiyonlar {
             element.style.display = "none";
         })
     }
+
+    baslat() {
+        this.temizle();
+        this.kordinatEkle(3, 3);
+        this.kordinatBelirle();
+    }
 }
 
 class Oyun extends Fonksiyonlar {
@@ -45,10 +59,8 @@ class Oyun extends Fonksiyonlar {
     butonlar = [];
 
     main() {
-        this.temizle();
         let uzaklik = 0, puan = 100;
-        this.kordinatEkle(3, 3);
-        this.kordinatBelirle();
+        this.baslat();
         kare.forEach(element => {
             element.addEventListener("click", () => {
                 let x = Number(element.getAttribute("x")), y = Number(element.getAttribute("y"));
@@ -81,4 +93,6 @@ function app() {
     const oyun = new Oyun();
     oyun.main();
 }
+
 app();
+
