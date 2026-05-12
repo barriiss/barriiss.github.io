@@ -6,7 +6,8 @@ body {
     background-color: hsl(212, 45%, 89%);
 
     h2,
-    p {
+    p,
+    footer {
         margin: 0;
         padding: 0;
     }
@@ -51,5 +52,10 @@ body {
                 letter-spacing: 0.2px;
             }
         }
+    }
+    & footer{
+        position: absolute;
+        z-index: 5;
+        bottom: 0;
     }
 }
